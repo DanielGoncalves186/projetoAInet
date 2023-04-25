@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"type":"text","text":"Resumo:\nTABELAS E COLUNAS:\nUsers:\nCustumers:\nCategories:\nColors:\nPrices:\nTShirt_images:\nOrders:\nOrder_items:\n\nFucnionalidades:\t\n\t1. AUTENTICAÇÃO, PERFIL E GESTÃO DE UTILIZADORES\n\t2. CATÁLOGO\n\t3. CARRINHO DE COMPRAS\n\t4. ENCOMENDAS\n\t5. IMAGENS PRÓPRIAS\n\t6. RECIBOS E E-MAIL\n\t7. ESTATÍSTICAS\n\t8. PREVIEW DE T-SHIRTS\n\nENTREGA:\n\t5 ficheiros (2 relativos ao grupo e 3 individuais).\n\t\trelatório do grupo em Excel - entregue apenas por um dos elementos do grupo.\n\t\t1 Ficheiro Zip com todo o código do projeto - exceto as pastas \"vendor\", \"database\", \"storage\", \"node_modules\" e \".git\"\n\t\trelatórios individuais - autoavaliação e avaliação entre pares\n","id":"e3759c49291d39ef","x":-440,"y":-880,"width":511,"height":518,"color":"6"},
+		{"id":"623df7514da3b015","x":240,"y":-840,"width":250,"height":60,"type":"text","text":"Users:\n"},
+		{"id":"e6d41165f913269b","x":240,"y":-760,"width":250,"height":60,"type":"text","text":"Customers:"},
+		{"id":"c41e1b71af762ff3","x":240,"y":-681,"width":250,"height":60,"type":"text","text":"Categories:"},
+		{"id":"ca81fbf2aad26f13","x":240,"y":-600,"width":250,"height":60,"type":"text","text":"Colors:"},
+		{"id":"8f8d1e9b69c33507","x":240,"y":-520,"width":250,"height":60,"type":"text","text":"Prices:"},
+		{"id":"3da4d58ed8b95c70","x":240,"y":-440,"width":250,"height":60,"type":"text","text":"TShirt_images:"},
+		{"id":"f91ff6dbeb77f26a","x":240,"y":-362,"width":250,"height":60,"type":"text","text":"Orders:"},
+		{"id":"9f984cc9b228d0a3","x":240,"y":-280,"width":250,"height":60,"type":"text","text":"Order_name:"}
+	],
+	"edges":[]
+}
