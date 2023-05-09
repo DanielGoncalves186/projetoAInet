@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tshirt_images extends Model
+class TshirtImage extends Model
 {
     use HasFactory;
 }
