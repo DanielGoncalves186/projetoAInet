@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'nif',
+        'address',
+        'default_payment_type',
+        'default_payment_ref'
+    ];
 }

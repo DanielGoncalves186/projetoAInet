@@ -36,7 +36,7 @@ class UserController extends Controller
         'email' => 'required|unique:users,email',
         'password' => 'required'
         ], [ // Custom Error Messages
-        'nome.required' => '"name" is required.',
+        'name.required' => '"name" is required.',
         'email.required' => '"email" is required.',
         'email.unique' => '"email" is already in use',
         'password.required' => '"password" is required.',
@@ -56,12 +56,13 @@ class UserController extends Controller
     public function update(Request $request, $id) : RedirectResponse {
         $validated = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id ,
+            'email' => 'required|email:rfc|unique:users,email,'.$id ,
             'password' => 'required|min:6|same:password_confirm',
             'password_confirm' => 'required:min:6',
             ], [ // Custom Error Messages
-            'nome.required' => '"name" is required.',
+            'name.required' => '"name" is required.',
             'email.required' => '"email" is required.',
+            'email.email' => '"email" must be valid.',
             'email.unique' => '"email" is already in use',
             'password.required' => '"password" is required.',
             ]);

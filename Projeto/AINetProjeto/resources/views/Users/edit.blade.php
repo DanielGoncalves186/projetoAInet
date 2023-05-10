@@ -1,5 +1,4 @@
-<form action="{{ action([App\Http\Controllers\UserController::class,
-'update'], $user->id) }}" method="post">
+<form action="{{ action([App\Http\Controllers\UserController::class,'update'], $user->id) }}" method="post">
 @csrf
 @method("PUT")
 <div>
