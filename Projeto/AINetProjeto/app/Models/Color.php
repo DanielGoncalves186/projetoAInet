@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class Color extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'code';
     protected $fillable = ['name'];
 
-    public function tshirtImages(): HasMany
+    public function orderItems(): HasMany
     {
-        return $this->HasMany(TshirtImage::Class, 'category_id');
+        return $this->hasMany(OrderItem::class, 'color_code');
     }
 }
