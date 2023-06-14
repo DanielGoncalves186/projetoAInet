@@ -1,7 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-}
+
 
 .top-left img {
     width: 70px;
@@ -13,22 +10,16 @@ body {
     margin-right: 10px;
 }
 
-#sidebar-button::after {
-    content: "<?php echo isset($_SESSION['sidebar_hovered']) && $_SESSION['sidebar_hovered'] ? 'Collapse' : 'Expand'; ?>"
-}
 
 
-#sidebar.expanded {
-    width: 200px;
-}
+
+
 
 #flexbox {
 width: 100%;
 }
 
-#sidebar:hover {
-    width: 200px;
-}
+
 
 #content {
     padding: 20px;
@@ -61,7 +52,7 @@ width: 100%;
     background-color: #f2f2f2;
     padding: 20px;
     width: 80px;
-    transition: width 0.3s ease;
+    
     position: relative;
     grid-area: sidebar;
 }

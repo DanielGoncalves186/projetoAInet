@@ -3,7 +3,7 @@
 <head>
     <title>Program Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="template2.css">
+    <link rel="stylesheet" href="{{asset('css/template2.css')}}">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

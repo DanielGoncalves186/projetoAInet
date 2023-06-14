@@ -19,7 +19,12 @@ use App\Http\Controllers\OrderController;
 Route::get('/', function () {
     return view('start');
 });
-
+Route::get('/register', function () {
+    return view('Registrations/CustomerRegist');
+});
+Route::get('/login', function () {
+    return view('Login/login');
+});
 //users routes
 Route::get('users',[UserController::class, 'index']); //route to page that shows all users
 Route::get('users/create',[UserController::class, 'create']); //route to page that creates a user
