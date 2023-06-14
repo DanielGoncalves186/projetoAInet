@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+
+
+#sidebar-button::after {
+    content: "<?php echo isset($_SESSION['sidebar_hovered']) && $_SESSION['sidebar_hovered'] ? 'Collapse' : 'Expand'; ?>"
+}
+
+
+#sidebar.expanded {
+    width: 200px;
+}
+
+#sidebar:hover {
+    width: 200px;
+}
+
+#content {
+    padding: 20px;
+}
+
+#upper-bar {
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Set a higher z-index value */
+}
+
+#sidebar {
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 80px;
+    transition: width 0.3s ease;
+    position: relative;
+    height: 100%;
+    z-index: 1; /* Set a lower z-index value */
+    align-items: stretch
+}
+#container {
+    display: flex;
+    height: 100%;
+}
+
+
+#page-title {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#page-title img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#page-title h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: darkorange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#sidebar-buttons .button{
+    background-color: orange;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    #sidebar.expanded {
+        width: 0;
+    }
+    
+    #sidebar-button {
+        display: block;
+    }
+}
+
