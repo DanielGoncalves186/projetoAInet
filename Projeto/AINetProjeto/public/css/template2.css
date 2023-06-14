@@ -1,0 +1,14 @@
+
+
+        /* Additional CSS styles */
+        .sidebar {
+            height: 100vh;
+            background-color: grey;
+        }
+        
+        .content {
+            background-color: #ffffff;
+        }
+        .nav-item{
+            width: 200px;
+        }

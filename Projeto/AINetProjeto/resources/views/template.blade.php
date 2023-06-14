@@ -1,59 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{$pageTitle}}</title>
-    <link rel="stylesheet" href="{{asset('css/template.css')}}">
-<style><?php if (isset($_SESSION['sidebar_hovered']) && $_SESSION['sidebar_hovered']) { ?>
-    #sidebar-button::after {
-        content: "Collapse";
-    }
-    <?php } else { ?>
-    #sidebar-button::after {
-        content: "Expand";
-    }
-    <?php } ?>
-    </style>
-    
+    <title>Program Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template2.css">
 </head>
 <body>
-<test>
-<container>
-<div id="content">
-        <div id="upper-bar">
-            <div id="page-title">
-                <img src="{{asset('img/TShirt.png')}}" alt="Icon">
-                <h1>{{$pageTitle}}</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="{{asset('img/TShirt.png')}}" alt="Logo" height="50" width="50">
+            {{$pageTitle}}
+        </a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="/users">List Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="/orders">List Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="/categories">List Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="/customers">List Customers</a>
+                    </li>
+                </ul>
             </div>
-            <a href="#" class="button">Logout</a>
-        </div>
-    <div id="sidebar">
-        <div id="sidebar-buttons">
-            <a href="#" class="button">MyOrders</a>
-            <a href="#" class="button">Register TShirt</a>
-            <a href="#" class="button">Past Orders</a>
-            <a href="/users" class="button">Users</a>
-            <a href="/categories" class="button">Category</a>
-            <a href="/orders" class="button">Orders</a>
-            <a href="/customers" class="button">Customers</a>
+            <div class="col-10 content">
+                <!-- Content of the page goes here -->
+                @yield('content')
+            </div>
         </div>
     </div>
-        @yield('content')
-    </div>
-    </container>
-    </test>
-    <script>
-        var sidebarButton = document.getElementById("sidebar-button");
-        var sidebarForm = document.getElementById("sidebar-form");
-
-        sidebarButton.addEventListener("mouseover", function() {
-            sidebarForm.sidebar_hovered.value = "true";
-            sidebarForm.submit();
-        });
-
-        sidebarButton.addEventListener("mouseout", function() {
-            sidebarForm.sidebar_hovered.value = "false";
-            sidebarForm.submit();
-        });
-    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

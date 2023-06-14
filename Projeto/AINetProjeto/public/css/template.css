@@ -3,7 +3,15 @@ body {
     display: flex;
 }
 
-
+.top-left img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+.top-right h1 {
+    height: 70px;
+    margin-right: 10px;
+}
 
 #sidebar-button::after {
     content: "<?php echo isset($_SESSION['sidebar_hovered']) && $_SESSION['sidebar_hovered'] ? 'Collapse' : 'Expand'; ?>"
@@ -14,13 +22,20 @@ body {
     width: 200px;
 }
 
+#flexbox {
+width: 100%;
+}
+
 #sidebar:hover {
     width: 200px;
 }
 
 #content {
     padding: 20px;
+    grid-area: content;
+    background-color: #ffffff;
 }
+
 
 #upper-bar {
     background-color: #f2f2f2;
@@ -29,7 +44,17 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    z-index: 2; /* Set a higher z-index value */
+    z-index: 2; /* Set a    higher z-index value */
+    width: 100%;
+    align-items: stretch;
+    height:auto;
+    top:0;
+    left:0;
+    z-index: 9999;
+}
+#header {
+    grid-area: header;
+    background-color: #f0f0f0;
 }
 
 #sidebar {
@@ -38,12 +63,11 @@ body {
     width: 80px;
     transition: width 0.3s ease;
     position: relative;
-    height: 100%;
-    z-index: 1; /* Set a lower z-index value */
-    align-items: stretch
+    grid-area: sidebar;
 }
 #container {
     display: flex;
+    flex-direction: row;
     height: 100%;
 }
 
@@ -84,6 +108,20 @@ body {
     display: flex;
     flex-direction: column;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas:
+        "header header"
+        "sidebar content";
+    height: 100vh; /* Adjust to desired height */
+}
+
+/* Additional CSS styles for the header */
+
+
+
 
 @media (max-width: 768px) {
     #sidebar.expanded {
