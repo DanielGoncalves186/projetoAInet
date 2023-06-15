@@ -1,0 +1,34 @@
+Models:
+Category ✔
+Color ✔
+Customer ✔
+Order ✔
+OrderItem ✔
+Price ✔
+TshirtImage ✔
+User ✔
+
+Controllers:
+CategoryController ✔
+Controller ✔
+ColorController
+CustomerController ✔
+OrderController ✔
+OrderItemController ✔
+PriceController ✔
+TshirtImageController ✔
+UserController ✔
+
+Routes -> 
+
+Views:
+
+Funcionalidades:
+AUTENTICAÇÃO, PERFIL E GESTÃO DE UTILIZADORES
+CATÁLOGO
+CARRINHO DE COMPRAS
+ENCOMENDAS
+IMAGENS PRÓPRIAS
+RECIBOS E E-MAIL
+ESTATÍSTICAS
+PREVIEW DE T-SHIRTS

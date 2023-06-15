@@ -5,6 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderItemController;
+use App\Http\Controllers\PriceController;
+use App\Http\Controllers\TshirtImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +60,33 @@ Route::post('orders',[OrderController::class, 'store']); //creates an order
 Route::get('orders/{id}/edit', [OrderController::class, 'edit']); //route to page that edits an order
 Route::put('orders/{id}', [OrderController::class, 'update']); //edits an order
 Route::delete('orders/{id}',[OrderController::class, 'destroy']); //delete an order //needs to be changed in the controller in case there is something that depends on this
+
+// orderItem routes
+Route::get('/orderItems', [OrderItemController::class, 'index'])->name('orderItems.index');
+Route::get('/orderItems/create', [OrderItemController::class, 'create'])->name('orderItems.create');
+Route::post('/orderItems', [OrderItemController::class, 'store'])->name('orderItems.store');
+Route::get('/orderItems/{orderItem}', [OrderItemController::class, 'show'])->name('orderItems.show');
+Route::get('/orderItems/{orderItem}/edit', [OrderItemController::class, 'edit'])->name('orderItems.edit');
+Route::put('/orderItems/{orderItem}', [OrderItemController::class, 'update'])->name('orderItems.update');
+Route::delete('/orderItems/{orderItem}', [OrderItemController::class, 'destroy'])->name('orderItems.destroy');
+
+// price routes
+Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
+Route::get('/prices/create', [PriceController::class, 'create'])->name('prices.create');
+Route::post('/prices', [PriceController::class, 'store'])->name('prices.store');
+Route::get('/prices/{price}/edit', [PriceController::class, 'edit'])->name('prices.edit');
+Route::put('/prices/{price}', [PriceController::class, 'update'])->name('prices.update');
+Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('prices.destroy');
+
+// tshirtImage routes
+Route::get('/tshirt_images', [TshirtImageController::class, 'index'])->name('tshirt_images.index');
+Route::get('/tshirt_images/create', [TshirtImageController::class, 'create'])->name('tshirt_images.create');
+Route::post('/tshirt_images', [TshirtImageController::class, 'store'])->name('tshirt_images.store');
+Route::get('/tshirt_images/{tshirtImage}/edit', [TshirtImageController::class, 'edit'])->name('tshirt_images.edit');
+Route::put('/tshirt_images/{tshirtImage}', [TshirtImageController::class, 'update'])->name('tshirt_images.update');
+Route::delete('/tshirt_images/{tshirtImage}', [TshirtImageController::class, 'destroy'])->name('tshirt_images.destroy');
+
+
 // tshirt routes
 Route::get('tshirt',[OrderController::class, 'index']);
 Route::get('tshirt',[OrderController::class, 'indexUserTshirt']);
@@ -66,7 +96,7 @@ Route::get('tshirt/{id}/edit', [OrderController::class, 'edit']);
 Route::put('tshirt/{id}', [OrderController::class, 'update']);
 Route::delete('tshirt/{id}',[OrderController::class, 'destroy']);
 
-/* 
+/*
 // Template de rotas
 Route::get('tshirt',[TemplateController::class, 'index']);
 Route::get('tshirt/create',[TemplateController::class, 'create']);
