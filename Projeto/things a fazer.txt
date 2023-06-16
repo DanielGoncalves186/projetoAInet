@@ -11,7 +11,7 @@ User ✔
 Controllers:
 CategoryController ✔
 Controller ✔
-ColorController
+ColorController ✔
 CustomerController ✔
 OrderController ✔
 OrderItemController ✔
