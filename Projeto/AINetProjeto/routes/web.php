@@ -87,6 +87,8 @@ Route::post('/tshirt_images', [TshirtImageController::class, 'store'])->name('ts
 Route::get('/tshirt_images/{tshirtImage}/edit', [TshirtImageController::class, 'edit'])->name('tshirt_images.edit');
 Route::put('/tshirt_images/{tshirtImage}', [TshirtImageController::class, 'update'])->name('tshirt_images.update');
 Route::delete('/tshirt_images/{tshirtImage}', [TshirtImageController::class, 'destroy'])->name('tshirt_images.destroy');
+//catalogo route
+Route::get('/catalogo', [TshirtImageController::class, 'index'])->name('catalogo.index');
 
 
 // tshirt routes
@@ -117,3 +119,7 @@ Route::put('tshirt/{id}', [TemplateController::class, 'update']);
 Route::delete('tshirt/{id}',[TemplateController::class, 'destroy']);
 
 */
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

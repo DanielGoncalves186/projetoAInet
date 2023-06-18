@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\TshirtImage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ColorController;
 
 class TshirtImageController extends Controller
 {
     public function index()
     {
         $tshirtImages = TshirtImage::all();
-        return view('tshirt_images.index', compact('tshirtImages'));
+
+        // Instancie o ColorController
+        $colorController = new ColorController();
+
+        // Obtenha as cores disponíveis
+        $colors = $colorController->getColors();
+
+        // Retorne a visualização com as imagens de camiseta e as cores disponíveis
+        return view('tshirt_images.index', compact('tshirtImages', 'colors'));
     }
 
     public function create()
@@ -62,4 +71,5 @@ class TshirtImageController extends Controller
         return redirect()->route('tshirt_images.index')
             ->with('success', 'TshirtImage deleted successfully.');
     }
+        
 }

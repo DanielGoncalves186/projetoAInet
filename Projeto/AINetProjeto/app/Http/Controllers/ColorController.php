@@ -54,4 +54,10 @@ class ColorController extends Controller
         return redirect()->route('colors.index')
             ->with('success', 'Color deleted successfully.');
     }
+
+    public function getColors()
+    {
+        $colors = Color::all();
+        return $colors;
+    }
 }
