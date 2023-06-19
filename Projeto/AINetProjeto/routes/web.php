@@ -7,8 +7,9 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\PriceController;
-use App\Http\Controllers\TshirtImageController;
+use App\Http\Controllers\TshirtController;
 use App\Http\Controllers\ColorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,10 @@ use App\Http\Controllers\ColorController;
 Route::get('/', function () {
     return view('start');
 });
-Route::get('/register', function () {
-    return view('Registrations/CustomerRegist');
+Route::get('/main', function () {
+    return view('Main/main');
 });
-Route::get('/login', function () {
-    return view('Login/login');
-});
+
 //users routes
 Route::get('users',[UserController::class, 'index']); //route to page that shows all users
 Route::get('users/create',[UserController::class, 'create']); //route to page that creates a user
@@ -81,24 +80,17 @@ Route::put('/prices/{price}', [PriceController::class, 'update'])->name('prices.
 Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('prices.destroy');
 
 // tshirtImage routes
-Route::get('/tshirt_images', [TshirtImageController::class, 'index'])->name('tshirt_images.index');
-Route::get('/tshirt_images/create', [TshirtImageController::class, 'create'])->name('tshirt_images.create');
-Route::post('/tshirt_images', [TshirtImageController::class, 'store'])->name('tshirt_images.store');
-Route::get('/tshirt_images/{tshirtImage}/edit', [TshirtImageController::class, 'edit'])->name('tshirt_images.edit');
-Route::put('/tshirt_images/{tshirtImage}', [TshirtImageController::class, 'update'])->name('tshirt_images.update');
-Route::delete('/tshirt_images/{tshirtImage}', [TshirtImageController::class, 'destroy'])->name('tshirt_images.destroy');
+Route::get('/tshirt', [TshirtController::class, 'index'])->name('tshirt.index');
+Route::get('/tshirt/{id}/picture', [TshirtController::class, 'getPicture']);
+Route::get('/tshirt/create', [TshirtController::class, 'create'])->name('tshirt.create');
+Route::post('/tshirt', [TshirtController::class, 'store'])->name('tshirt.store');
+Route::get('/tshirt/{tshirtImage}/edit', [TshirtController::class, 'edit'])->name('tshirt.edit');
+Route::put('/tshirt/{tshirtImage}', [TshirtController::class, 'update'])->name('tshirt.update');
+Route::delete('/tshirt/{tshirtImage}', [TshirtController::class, 'destroy'])->name('tshirt.destroy');
+
 //catalogo route
-Route::get('/catalogo', [TshirtImageController::class, 'index'])->name('catalogo.index');
+Route::get('/catalogo', [TshirtController::class, 'index'])->name('catalogo.index');
 
-
-// tshirt routes
-Route::get('tshirt',[OrderController::class, 'index']);
-Route::get('tshirt',[OrderController::class, 'indexUserTshirt']);
-Route::get('tshirt/create',[OrderController::class, 'create']);
-Route::post('tshirt',[OrderController::class, 'store']);
-Route::get('tshirt/{id}/edit', [OrderController::class, 'edit']);
-Route::put('tshirt/{id}', [OrderController::class, 'update']);
-Route::delete('tshirt/{id}',[OrderController::class, 'destroy']);
 
 //color routes
 Route::get('/colors', [ColorController::class, 'index'])->name('colors.index');
@@ -120,6 +112,8 @@ Route::delete('tshirt/{id}',[TemplateController::class, 'destroy']);
 
 */
 
-Auth::routes();
+Auth::routes(); //dont change, this works
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

@@ -1,14 +1,14 @@
-@extends('layout')
-
-@section('header-title', 'Catálogo de T-shirts')
-
-@section('main')
+@extends('template')
+@section('head')
+<link rel="stylesheet" href="{{asset('css/catalogo.css')}}">
+@endsection
+@section('content')
 <div class="t-shirts">
     <div class="t-shirts-container">
         @foreach ($tshirtImages as $tshirt)
         <div class="t-shirt-box">
             <div class="t-shirt-image">
-                <img src='{{ $tshirt->image_url }}' alt="Imagem da T-shirt">
+                <img href='{{ $tshirt->image_url }}' alt="Imagem da T-shirt">
             </div>
             <div class="t-shirt-details">
                 <h3>{{ $tshirt->name }}</h3>
@@ -60,88 +60,4 @@ function adicionarAoCarrinho(tshirtId) {
 }
 </script>
 
-<style>
-.t-shirts-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.t-shirt-box {
-    width: calc((100% - 30px) / 4);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.t-shirt-image {
-    margin-bottom: 10px;
-}
-
-.t-shirt-image img {
-    width: 100%;
-    height: auto;
-}
-
-.t-shirt-details {
-    text-align: center;
-    flex-grow: 1;
-}
-
-.t-shirt-details h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.color-quantity-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.color-options {
-    flex-grow: 1;
-    margin-right: 5px;
-}
-
-.color-options select {
-    width: 100%;
-}
-
-.quantity-options {
-    flex-grow: 1;
-    margin-left: 5px;
-}
-
-.quantity-controls {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-}
-
-.quantity-controls button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-to-cart-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: auto;
-    width: 100%;
-}
-</style>
 @endsection

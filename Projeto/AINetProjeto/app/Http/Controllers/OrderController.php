@@ -17,7 +17,7 @@ class OrderController extends Controller
     }
     public function create(): View
     {
-      return view('orders.create')->withPageTitle('Add Order');
+      return view('orders.create')->withPageTitle('New Order');
     }
     /*
     public function store(Request $request): RedirectResponse
@@ -52,7 +52,7 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $pageTitle = 'Update Order';
-        return view('orders.edit', compact('order', 'pageTitle'));
+        return view('orders.edit', compact('order', 'Order Edit'));
     }
     public function update(Request $request, $id) : RedirectResponse {
         $validated = $request->validate([
