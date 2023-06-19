@@ -2,37 +2,34 @@
 @section('content')
 <form action="{{ action([App\Http\Controllers\UserController::class,
 'store']) }}" method="post">
-@csrf
-<div>
-<label for="inputName">Name</label>
-<input type="text" name="name" id="inputName" value="{{ old('name') }}">
-@error('name')
-<em>{{ $message}}</em>
-@enderror
-</div>
-<div>
-<label for="inputEmail">Email</label>
-<input type="text" name="email" id="inputEmail" value="{{ old('email') }}">
-@error('email')
-<em>{{ $message}}</em>
-@enderror
-</div>
-<div>
-<label for="inputPassword">Password</label>
-<input type="text" name="password" id="password" value="{{ old('password') }}">
-@error('password')
-<em>{{ $message}}</em>
-@enderror
-</div>
-<div>
-<label for="inputUserType">User Type</label>
-<input type="text" name="user_type" id="inputUserType">
 
-</div>
+<p> </p>
+<div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="user_type">User Type</label>
+        <select name="user_type" id="user_type" class="form-control" required>
+            <option value="client">Client</option>
+            <option value="user">User</option>
+        </select>
+    </div>
 <div>
-<button type="submit" name="ok">Save</button>
-<button type="reset" name="cancel">Cancel</button>
+<button type="submit" class="btn btn-primary">Create User</button>
+</form>
 </div>
 </form>
-@dd($errors)
+
 @endsection

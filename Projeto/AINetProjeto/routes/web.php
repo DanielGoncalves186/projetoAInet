@@ -32,8 +32,10 @@ Route::get('/main', function () {
 //users routes
 Route::get('users',[UserController::class, 'index']); //route to page that shows all users
 Route::get('users/create',[UserController::class, 'create']); //route to page that creates a user
+//Route::get('/users/email/{email}', [UserController::class,'getUserByEmail']); //get user with a specific email
+Route::get('/users/email', [UserController::class,'searchUser']);
+Route::get('users/edit/{id}', [UserController::class, 'edit']); //route to page that edits a user
 Route::post('users',[UserController::class, 'store']); //creates a user
-Route::get('users/{id}/edit', [UserController::class, 'edit']); //route to page that edits a user
 Route::put('users/{id}', [UserController::class, 'update']); //edits a user
 Route::delete('users/{id}',[UserController::class, 'destroy']); //deletes a user //needs to be changed in the controller in case there is something that depends on this
 //categories routes

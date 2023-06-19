@@ -1,12 +1,23 @@
 @extends('layouts.template')
+@section('header')
+<link rel="stylesheet" href="{{asset('css/template.css')}}">
+<style>
+#form{
+    display: flex;
+    flex-direction: row;
+}
+</style>
+@endsection
 @section('content')
 <div>
-<p>
-<a href="users/create">
-Add User
-</a>
-</p>
+<p></p>
 </div>
+<form method="GET" action="users/email">
+<a type="button" class="btn btn-secondary" href="/users/create">Add User</a>
+<input type="text" name="email" id="emailInput" placeholder="Enter Email">
+<button type="submit">Search</button>
+</form>
+<p></p>
 <table>
 <thead>
 <tr>
@@ -27,7 +38,7 @@ Add User
 <td>{{ $user->photo_url}} </td>
 <td>{{ $user->user_type}} </td>
 <td>
-<a href="users/{{$user->id}}/edit">
+<a type="button" class="btn btn-info" href="users/edit/{{$user->id}}">
 Edit
 </a>
 </td>
@@ -36,7 +47,7 @@ Edit
 method="POST">
 @csrf
 @method("DELETE")
-<input type="submit" value="Delete">
+<a type="button" class="btn btn-danger" value="Delete"> delete </a>
 </form>
 </td>
 </tr>
@@ -44,3 +55,15 @@ method="POST">
 </tbody>
 </table>
 @endsection
+<script>
+  const form = document.querySelector('form');
+  const emailInput = document.getElementById('emailInput');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = decodeURIComponent(emailInput.value.trim());
+    const url = `/users/email/${encodeURIComponent(email)}`;
+
+    window.location.href = url;
+  });
+</script>

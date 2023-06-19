@@ -14,6 +14,9 @@
         </a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link" href="/edit">Nome Do Admin</a>
+            </li> 
+            <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
             </li>
         </ul>
