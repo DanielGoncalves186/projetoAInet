@@ -29,6 +29,10 @@ Route::get('/main', function () {
     return view('Main/main');
 });
 
+Route::get('/tester', function () {
+    return view('layouts/ClienteTemplate');
+});
+
 //users routes
 Route::get('users',[UserController::class, 'index']); //route to page that shows all users
 Route::get('users/create',[UserController::class, 'create']); //route to page that creates a user

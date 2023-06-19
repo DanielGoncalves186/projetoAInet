@@ -1,0 +1,64 @@
+
+
+        /* Additional CSS styles */
+        .sidebar {
+            height: 100vh;
+            background-color: #f8f9fa;
+            transition: width 0.3s ease;
+            width: 100px;
+            overflow: hidden;
+        }
+        
+        .sidebar:hover {
+            width: 150px;
+        }
+        
+        .sidebar .btn-light {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .content {
+            background-color: #ffffff;
+        }
+
+        .cliente-nome {
+            display:inline-block; 
+            padding-top:.3125rem;
+            padding-bottom:.3125rem;
+            margin-right:1rem;
+            font-size:1.25rem;
+            line-height:inherit;
+            white-space:nowrap;
+            color: grey;
+            align-items: right;
+        }
+
+        .cliente-nome:hover{
+            text-decoration:none;
+            color: grey;
+        }
+        
+        /*"class=center"
+        .center {
+            text-align: center;
+            color: red;
+}
+        */
+
+        /*"id=p"
+        #p {
+            text-align: center;
+            color: red;
+}
+        */
+
+        /*element <p>
+
+        p{
+
+        }
+        */
