@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layouts.template')
 @section('content')
 <form action="{{ action([App\Http\Controllers\UserController::class,
 'store']) }}" method="post">
