@@ -53,19 +53,6 @@ class UserController extends Controller
         $pageTitle = 'Update User';
         return view('users.edit', compact('user', 'pageTitle'));
     }
-    public function getUserByEmail($email)
-{
-    $convertedText = mb_convert_encoding($email, 'UTF-8', 'auto');
-    $user = User::where('email', $convertedText)->first();
-    
-    if ($user) {
-        return view('users.edit')
-        ->with('user', $user)
-        ->with('pageTitle', 'User Profile');
-    } else {
-        return response()->json(['message' => 'User not found'], 404);
-    }
-}
 
 public function searchUser(Request $request)
 {

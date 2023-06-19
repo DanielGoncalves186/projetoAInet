@@ -19,8 +19,8 @@ class TshirtController extends Controller
         $colors = $colorController->getColors();
 
         // Retorne a visualização com as imagens de camiseta e as cores disponíveis
-        return view('tshirt.index', compact('tshirtImages', 'colors'))
-        ->with('pageTitle', 'TShirt Catálogo');
+        return view('tshirts.index', compact('tshirtImages', 'colors'))
+        ->with('pageTitle', 'Catalogo de Tshirts');
     }
 
     public function create()
@@ -75,7 +75,7 @@ class TshirtController extends Controller
      public function getPicture($id)
     {
         // Retrieve the Tshirt model from the database based on the given ID
-        $tshirt = App\Http\Controllers\TshirtImage::find($id);
+        $tshirt = TshirtImage::find($id);
 
         if (!$tshirt) {
             // Handle the case when the Tshirt with the given ID is not found
