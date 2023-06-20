@@ -17,6 +17,14 @@
         
         .sidebar:hover {
             width: 150px;
+            #body{
+                background-color: black;
+            }
+        }
+        .sidebar:hover body{
+        
+                background-color: black!important;
+            
         }
         .col-10.content{
             margin-top: 100px; /* Adjust the margin-top value based on the navbar height */

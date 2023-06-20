@@ -1,10 +1,12 @@
 @extends('layouts.template')
+
 @section('content')
 <div>
 <p>
 <a href="orders/create">
 Add order
 </a>
+
 </p>
 </div>
 <table>
@@ -53,6 +55,33 @@ method="POST">
 </td>
 </tr>
 @endforeach
+
 </tbody>
+
 </table>
+
+
+@endsection
+@section('navbar')
+<a class="navbar fixed-top" id="top-navbar">
+    <div class="container">
+        <ul class="pagination justify-content-center align-items-center">
+            <li class="page-item {{ $orders->previousPageUrl() ? '' : 'disabled' }}">
+                <a class="page-link" href="{{ $orders->previousPageUrl() }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @foreach ($orders->getUrlRange(1, $orders->lastPage()) as $page => $url)
+                <li class="page-item {{ $page == $orders->currentPage() ? 'active' : '' }}">
+                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                </li>
+            @endforeach
+            <li class="page-item {{ $orders->nextPageUrl() ? '' : 'disabled' }}">
+                <a class="page-link" href="{{ $orders->nextPageUrl() }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</a>
 @endsection

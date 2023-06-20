@@ -10,7 +10,14 @@ class OrderController extends Controller
 {
     public function index(): View
     {
+        /*
         $orders = Order::all();
+        return view('orders.index')
+        ->with('orders', $orders)
+        ->with('pageTitle', 'Orders List');
+        */
+        $orders = Order::paginate(500); 
+
         return view('orders.index')
         ->with('orders', $orders)
         ->with('pageTitle', 'Orders List');
@@ -82,4 +89,5 @@ class OrderController extends Controller
         return redirect()->action(
         [OrderController::class, 'index']);
         }
+
 }

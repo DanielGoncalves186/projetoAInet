@@ -23,7 +23,8 @@
         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
     </div>
 
-    <button type="submit" class="btn btn-primary">Update User</button>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button class="btn btn-primary" onclick="window.history.back()">Cancel</button>
 </form>
 
 @endsection

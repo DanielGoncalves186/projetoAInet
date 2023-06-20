@@ -12,7 +12,9 @@
             <img src="{{asset('img/TShirt.png')}}" alt="Logo" height="50" width="50">
             {{$pageTitle}}
         </a>
+        @yield('navbar')
         <ul class="navbar-nav ml-auto">
+        
             <li class="nav-item">
                 <a class="nav-link" href="/edit">Nome Do Admin</a>
             </li> 
@@ -20,7 +22,9 @@
                 <a class="nav-link" href="/logout">Logout</a>
             </li>
         </ul>
+        
     </nav>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="sidebar">

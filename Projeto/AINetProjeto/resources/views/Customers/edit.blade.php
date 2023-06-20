@@ -1,41 +1,45 @@
+@extends('layouts.template')
+@section('content')
 <form action="{{ action([App\Http\Controllers\CustomerController::class,'update'], $customer->id) }}" method="post">
 @csrf
 @method("PUT")
-<div>
+<div class="form-group">
 <label for="inputNif">NIF</label>
-<input type="text" name="nif" id="inputNif" value="{{ old('nif',$customer->nif) }}">
+<input type="text" class="form-control" name ="inputNif"placeholder="NIF" pattern="[0-9]{9}" title="Enter a 9-digit NIF" value="{{ old('nif',$customer->nif) }}">
+
 @error('nif')
 <em>{{ $message}}</em>
 @enderror
 </div>
-
-<div>
-<label for="inputAddress">Address</label>
-<input type="text" name="address" id="inputAddress" value="{{ old('address',$customer->address) }}">
+<div class="form-group">
+  <label for="inputAddress">Address</label>
+  <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Enter address" value="{{ old('address',$customer->address) }}">     
 @error('address')
 <em>{{ $message}}</em>
 @enderror
 </div>
 
-<div>
+<div class="form-group">
 <label for="inputPaymentType">Payment Type</label>
-<input type="text" name="default_payment_type" id="inputPaymentType" value="{{ old('default_payment_type',$customer->default_payment_type) }}">
+  <select class="form-control" id="inputPaymentType">
+    <option value="MASTERCARD">Master Card</option>
+    <option value="VISA">Visa</option>
+    <option value="PAYPAL">PayPal</option>
+    </select>
 @error('default_payment_type')
 <em>{{ $message}}</em>
 @enderror
 </div>
-
-<div>
-<label for="inputPaymentRef">Payment Ref</label>
-<input type="text" name="default_payment_ref" id="inputPaymentRef" value="{{ old('default_payment_ref',$customer->default_payment_ref) }}">
+<div class="form-group">
+  <label for="inputPaymentRef">Payment Reference</label>
+  <input type="text" name="default_payment_ref" id="inputPaymentRef" class="form-control" id="payment-reference" placeholder="Enter payment reference" value="{{ old('default_payment_ref',$customer->default_payment_ref) }}">
+</div>
 @error('default_payment_ref')
 <em>{{ $message}}</em>
 @enderror
-</div>
 <div>
-<button type="submit" name="ok">Save</button>
-<button type="reset" name="cancel">Cancel</button>
+<button class="btn btn-primary" type="submit">Save</button>
+<button class="btn btn-primary" onclick="window.history.back()">Cancel</button>
 </div>
 </form>
-
-@dd($errors)
+@endsection

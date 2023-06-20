@@ -37,16 +37,17 @@
 <td>{{ $user->email }} </td>
 <td>{{ $user->photo_url}} </td>
 <td>{{ $user->user_type}} </td>
+@csrf
+@method("DELETE")
+<form id="deleteUser"action="users/{{$user->id}}"
+method="POST">
 <td>
 <a type="button" class="btn btn-info" href="users/edit/{{$user->id}}">
 Edit
 </a>
 </td>
 <td>
-<form action="users/{{$user->id}}"
-method="POST">
-@csrf
-@method("DELETE")
+
 <a type="button" class="btn btn-danger" value="Delete"> delete </a>
 </form>
 </td>

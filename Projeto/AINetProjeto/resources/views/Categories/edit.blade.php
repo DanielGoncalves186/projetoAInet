@@ -1,3 +1,5 @@
+@extends('layouts.template')
+@section('content')
 <form action="{{ action([App\Http\Controllers\CategoryController::class,'update'], $category->id) }}" method="post">
 @csrf
 @method("PUT")
@@ -14,4 +16,4 @@
 </div>
 </form>
 
-@dd($errors)
+@endsection

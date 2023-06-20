@@ -14,5 +14,4 @@
 <button type="reset" name="cancel">Cancel</button>
 </div>
 </form>
-@dd($errors)
 @endsection

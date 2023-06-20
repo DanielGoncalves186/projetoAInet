@@ -32,9 +32,10 @@ class CategoryController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-        'name' => 'required',
+        'name' => 'required|unique:categories,name',
         ], [ // Custom Error Messages
         'name.required' => '"name" is required.',
+        'name.unique' => '"name" must be unique'
         ]);
         // If something is not valid, execution is interrupted.
         // Remaining code is only executed if validation passes
@@ -46,13 +47,14 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $pageTitle = 'Update Category';
-        return view('categories.edit', compact('category', 'pageTitle'));
+        return view('Categories.edit', compact('category', 'pageTitle'));
     }
     public function update(Request $request, $id) : RedirectResponse {
         $validated = $request->validate([
-            'name' => 'required'
+            'name' => 'required|unique:categories,name',
             ], [ // Custom Error Messages
-            'name.required' => '"name" is required.'
+            'name.required' => '"name" is required.',
+            'name.unique' => '"name" must be unique'
             ]);
         // If something is not valid, execution is interrupted.
         // Remaining code is only executed if validation passes

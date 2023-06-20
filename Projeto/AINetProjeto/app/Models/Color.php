@@ -12,6 +12,7 @@ class Color extends Model
     use HasFactory;
     protected $primaryKey = 'code';
     protected $fillable = ['name'];
+    public $timestamps = false;
 
     public function orderItems(): HasMany
     {
