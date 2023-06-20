@@ -1,4 +1,4 @@
-@extends('layouts.clienteTemplate')
+@extends('layouts.app')
 @section('head')
 <link rel="stylesheet" href="{{asset('css/catalogo.css')}}">
 @endsection
@@ -15,7 +15,6 @@
 
                 <div class="color-quantity-options">
                     <div class="color-options">
-                        <label for="color_{{ $tshirt->id }}">Escolha uma cor:</label>
                         <select id="color_{{ $tshirt->id }}" name="color_{{ $tshirt->id }}">
                             <option value="">Selecione uma cor</option>
                             @foreach ($colors as $color)
@@ -26,9 +25,7 @@
 
                     <div class="quantity-options">
                         <div class="quantity-controls">
-                            <button onclick="atualizarQuantidade({{ $tshirt->id }}, -1)">-</button>
                             <input type="number" id="quantity_{{ $tshirt->id }}" name="quantity_{{ $tshirt->id }}" min="1" value="1">
-                            <button onclick="atualizarQuantidade({{ $tshirt->id }}, 1)">+</button>
                         </div>
                     </div>
                 </div>
@@ -41,15 +38,6 @@
 </div>
 
 <script>
-function atualizarQuantidade(tshirtId, valor) {
-    var quantidadeInput = document.getElementById('quantity_' + tshirtId);
-    var quantidade = parseInt(quantidadeInput.value) + valor;
-
-    if (quantidade >= 1) {
-        quantidadeInput.value = quantidade;
-    }
-}
-
 function adicionarAoCarrinho(tshirtId) {
     var corId = document.getElementById('color_' + tshirtId).value;
     var quantidade = document.getElementById('quantity_' + tshirtId).value;

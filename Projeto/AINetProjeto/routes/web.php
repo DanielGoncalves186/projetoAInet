@@ -121,5 +121,3 @@ Route::delete('tshirt/{id}',[TemplateController::class, 'destroy']);
 Auth::routes(); //dont change, this works
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
