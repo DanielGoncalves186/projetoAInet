@@ -121,3 +121,19 @@ Route::delete('tshirt/{id}',[TemplateController::class, 'destroy']);
 Auth::routes(); //dont change, this works
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*
+// Rota para o painel administrativo (admin)
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin', function () {
+        return view('layouts.admintemplate');
+    })->name('admin.dashboard');
+});
+
+// Rota para o cliente
+Route::middleware(['auth', 'role:client'])->group(function () {
+    Route::get('/cliente', function () {
+        return view('layouts.clientetemplate');
+    })->name('client.dashboard');
+});
+*/
