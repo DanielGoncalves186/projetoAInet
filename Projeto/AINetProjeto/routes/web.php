@@ -42,7 +42,7 @@ Route::get('/users/email', [UserController::class,'searchUser']);
 Route::get('users/edit/{id}', [UserController::class, 'edit']); //route to page that edits a user
 Route::post('users',[UserController::class, 'store']); //creates a user
 Route::put('users/{id}', [UserController::class, 'update']); //edits a user
-Route::delete('users/{id}',[UserController::class, 'destroy']); //deletes a user //needs to be changed in the controller in case there is something that depends on this
+Route::delete('users/{id}',[UserController::class, 'destroy'])->name('users.destroy');//deletes a user //needs to be changed in the controller in case there is something that depends on this
 //categories routes
 Route::get('categories',[CategoryController::class, 'index']); //route to page that shows all categories
 Route::get('categories/create',[CategoryController::class, 'create']); //route to page that creates a category

@@ -7,6 +7,9 @@
             <li class="nav-item">
                 <a class="btn btn-light" href="/catalogo">ADMIN CENAS</a>
             </li>
+            <li class="nav-item">
+                <a class="btn btn-light" href="/users">Users</a>
+            </li>
         </ul>
     </div>
 </div>

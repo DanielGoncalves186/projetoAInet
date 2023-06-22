@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\View\View;
@@ -94,11 +95,25 @@ public function searchUser(Request $request)
            }
 
 
-    public function destroy($id) : RedirectResponse{
-        User::destroy($id);
-        return redirect()->action(
-        [UserController::class, 'index']);
-        }
+           public function destroy($id): RedirectResponse
+           {
+               $user = User::findOrFail($id);
+               
+               // Verificar se o usuário possui registros dependentes em outra tabela (por exemplo, 'customers')
+               $hasCustomers = DB::table('customers')->where('user_id', $id)->exists();
+               
+               if ($hasCustomers) {
+                   // Caso existam registros dependentes, você pode decidir como lidar com eles.
+                   // Neste exemplo, estou apenas redirecionando de volta à página de listagem com uma mensagem de erro.
+                   return redirect()->action([UserController::class, 'index'])->with('error', 'O usuário possui registros dependentes e não pode ser excluído.');
+               }
+               
+               // Se não houver registros dependentes, você pode prosseguir com a exclusão do usuário.
+               $user->delete();
+           
+               return redirect()->action([UserController::class, 'index'])->with('success', 'O usuário foi excluído com sucesso.');
+           }
+           
         
     }
 
