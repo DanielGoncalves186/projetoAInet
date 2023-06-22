@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
@@ -122,6 +123,13 @@ Auth::routes(); //dont change, this works
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/admin', function () {
+    return view('layouts.admintemplate');
+})->name('admin')->middleware('auth');
+
+Route::get('/client', function () {
+    return view('layouts.clientetemplate');
+})->name('home')->middleware('auth');
 /*
 // Rota para o painel administrativo (admin)
 Route::middleware(['auth', 'role:admin'])->group(function () {
