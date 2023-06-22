@@ -80,3 +80,7 @@
     cursor: pointer;
     margin-top: auto;
 }
+
+.form-control {
+    width: 100%;
+}

@@ -89,7 +89,7 @@ Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('pri
 Route::get('/tshirt', [TshirtController::class, 'index'])->name('tshirt.index');
 Route::get('/tshirt/{id}/picture', [TshirtController::class, 'getPicture']);
 Route::get('/tshirt/create', [TshirtController::class, 'create'])->name('tshirt.create');
-Route::post('/tshirt', [TshirtController::class, 'store'])->name('tshirt.store');
+Route::post('/tshirt/store', [TshirtController::class, 'store'])->name('tshirt.store');
 Route::get('/tshirt/{tshirtImage}/edit', [TshirtController::class, 'edit'])->name('tshirt.edit');
 Route::put('/tshirt/{tshirtImage}', [TshirtController::class, 'update'])->name('tshirt.update');
 Route::delete('/tshirt/{tshirtImage}', [TshirtController::class, 'destroy'])->name('tshirt.destroy');
@@ -137,3 +137,6 @@ Route::middleware(['auth', 'role:client'])->group(function () {
     })->name('client.dashboard');
 });
 */
+
+//CARRINHO
+Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');

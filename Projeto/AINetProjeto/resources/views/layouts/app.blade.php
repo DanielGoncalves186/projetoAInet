@@ -17,10 +17,11 @@
     @yield('head')
 </head>
 <body>
+    <header>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
-                <img src="{{asset('img/TShirt.png')}}" alt="Logo" height="50" width="50">
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('img/TShirt.png') }}" alt="Logo" height="50" width="50">
                 ImagineShirt
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -66,9 +67,10 @@
                 </ul>
             </div>
         </nav>
-        <main class="py-4">
-            @yield('content')
-        </main>
     </div>
+    </header>
+    <main class="py-4">
+        @yield('content')
+    </main>
 </body>
 </html>

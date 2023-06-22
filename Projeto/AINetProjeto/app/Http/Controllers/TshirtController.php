@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TshirtImage;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ColorController;
 
@@ -20,13 +21,16 @@ class TshirtController extends Controller
 
         // Retorne a visualização com as imagens de camiseta e as cores disponíveis
         return view('tshirts.index', compact('tshirtImages', 'colors'))
-        ->with('pageTitle', 'Catalogo de Tshirts');
+            ->with('pageTitle', 'Catalogo de Tshirts');
     }
 
     public function create()
     {
-        return view('tshirt.create');
+        $categories = Category::all();
+
+        return view('tshirts.addtshirt', compact('categories'));
     }
+
 
     public function store(Request $request)
     {
@@ -40,8 +44,7 @@ class TshirtController extends Controller
 
         TshirtImage::create($request->all());
 
-        return redirect()->route('tshirt.index')
-            ->with('success', 'Tshirt Image created successfully.');
+        return redirect()->route('tshirt.index')->with('success', 'Tshirt Image created successfully.');
     }
 
     public function edit(TshirtImage $tshirtImage)
@@ -72,7 +75,7 @@ class TshirtController extends Controller
         return redirect()->route('tshirt.index')
             ->with('success', 'Tshirt Image deleted successfully.');
     }
-     public function getPicture($id)
+    public function getPicture($id)
     {
         // Retrieve the Tshirt model from the database based on the given ID
         $tshirt = TshirtImage::find($id);
@@ -102,5 +105,4 @@ class TshirtController extends Controller
             echo $pictureData->file_content;
         }, $pictureData->file_name, $headers);
     }
-        
 }
