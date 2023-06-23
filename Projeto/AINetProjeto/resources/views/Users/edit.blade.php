@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.admintemplate')
+@section('conteudo')
 <form action="{{ action([App\Http\Controllers\UserController::class,'update'], $user->id) }}" method="post">
     @method('PUT')
 <p></p>

@@ -20,7 +20,7 @@
     <header>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="/home">
+            <a class="navbar-brand" href=@yield('iconref')>
                 <img src="{{ asset('img/TShirt.png') }}" alt="Logo" height="50" width="50">
                 ImagineShirt
             </a>

@@ -1,5 +1,6 @@
-@extends('layouts.template')
-@section('content')
+@extends('layouts.admintemplate')
+@section('conteudo')
+<p></p>
 <div>
 <p>
 <a href="categories/create">

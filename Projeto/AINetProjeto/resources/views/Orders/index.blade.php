@@ -1,6 +1,5 @@
-@extends('layouts.template')
-
-@section('content')
+@extends('layouts.admintemplate')
+@section('conteudo')
 <div>
 <p>
 <a href="orders/create">

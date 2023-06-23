@@ -1,5 +1,5 @@
-@extends('layouts.template')
-@section('content')
+@extends('layouts.admintemplate')
+@section('conteudo')
 <form action="{{ action([App\Http\Controllers\CategoryController::class,'store']) }}" method="post">
 @csrf
 <div>

@@ -21,12 +21,12 @@
                 <td>2182185</td>
             </tr>
             <tr>
-                <td>Aluno 2</td>
-                <td>987654321</td>
+                <td>Daniel Marques Gonçalves</td>
+                <td>2201790</td>
             </tr>
             <tr>
-                <td>Aluno 3</td>
-                <td>987654321</td>
+                <td>Tiago José Figueira Pires Rodrigues dos Reis</td>
+                <td>2201793</td>
             </tr>
         </table>
     </div>

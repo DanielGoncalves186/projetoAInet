@@ -1,5 +1,5 @@
-@extends('layouts.template')
-@section('content')
+@extends('layouts.admintemplate')
+@section('conteudo')
 <form action="{{ action([App\Http\Controllers\OrderController::class,'store']) }}" method="post">
 @csrf
 <div>
@@ -39,4 +39,4 @@
 </div>
 </form>
 @dd($errors)
-@endsection 
+@endsection

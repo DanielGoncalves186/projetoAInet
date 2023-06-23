@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.clientetempltate')
 
-@section('content')
+@section('conteudo')
     <p></p>
     <div class="container">
         <h2>Add T-Shirt</h2>

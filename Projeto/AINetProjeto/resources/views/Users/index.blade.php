@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('header')
+@extends('layouts.admintemplate')
+@section('head')
 <link rel="stylesheet" href="{{ asset('css/template.css') }}">
 <style>
 #form {
@@ -10,7 +9,7 @@
 </style>
 @endsection
 
-@section('content')
+@section('conteudo')
 <div>
     <p></p>
 </div>

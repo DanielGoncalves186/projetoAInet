@@ -1,5 +1,5 @@
-@extends('layouts.template')
-@section('content')
+@extends('layouts.admintemplate')
+@section('conteudo')
 <form action="{{ action([App\Http\Controllers\CustomerController::class,'update'], $customer->id) }}" method="post">
 @csrf
 @method("PUT")
@@ -13,7 +13,7 @@
 </div>
 <div class="form-group">
   <label for="inputAddress">Address</label>
-  <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Enter address" value="{{ old('address',$customer->address) }}">     
+  <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Enter address" value="{{ old('address',$customer->address) }}">
 @error('address')
 <em>{{ $message}}</em>
 @enderror

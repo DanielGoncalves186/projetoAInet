@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.clientetempltate')
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/catalogo.css') }}">
 @endsection
 
-@section('content')
+@section('conteudo')
     <p></p>
     <h2>TShirts</h2>
     <p></p>
