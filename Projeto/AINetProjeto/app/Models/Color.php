@@ -10,8 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Color extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'code';
-    protected $fillable = ['name'];
+    protected $fillable = ['code','name'];
     public $timestamps = false;
 
     public function orderItems(): HasMany

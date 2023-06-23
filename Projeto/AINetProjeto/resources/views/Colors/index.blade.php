@@ -1,4 +1,14 @@
 @extends('layouts.admintemplate')
+@section('head')
+<link rel="stylesheet" href="{{ asset('css/template.css') }}">
+<style>
+#form {
+    display: flex;
+    flex-direction: row;
+}
+</style>
+@endsection
+
 @section('conteudo')
     <p></p>
     <div>
@@ -13,6 +23,7 @@
             <tr>
                 <th>Code</th>
                 <th>Name</th>
+                <th>Deleted at</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -23,8 +34,9 @@
                 <tr>
                     <td>{{ $color->code }} </td>
                     <td>{{ $color->name }} </td>
+                    <td>{{ $color->deleted_at }} </td>
                     <td>
-                        <a href="colors/{{ $color->code }}/edit">
+                        <a a type="button" class="btn btn-info" href="colors/{{ $color->code }}/edit">
                             Edit
                         </a>
                     </td>

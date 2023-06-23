@@ -103,9 +103,9 @@ Route::get('/catalogo', [TshirtController::class, 'index'])->name('catalogo.inde
 Route::get('/colors', [ColorController::class, 'index'])->name('colors.index');
 Route::get('/colors/create', [ColorController::class, 'create'])->name('colors.create');
 Route::post('/colors', [ColorController::class, 'store'])->name('colors.store');
-Route::get('/colors/{color}/edit', [ColorController::class, 'edit'])->name('colors.edit');
-Route::put('/colors/{color}', [ColorController::class, 'update'])->name('colors.update');
-Route::delete('/colors/{color}', [ColorController::class, 'destroy'])->name('colors.destroy');
+Route::get('/colors/{code}/edit', [ColorController::class, 'edit']);
+Route::put('/colors/{code}', [ColorController::class, 'update'])->name('colors.update');
+Route::delete('/colors/{code}', [ColorController::class, 'destroy'])->name('colors.destroy');
 
 
 /*

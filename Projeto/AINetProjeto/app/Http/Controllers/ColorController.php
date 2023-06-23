@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Color;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ColorController extends Controller
 {
     public function index()
     {
         $colors = Color::all();
-        return view('colors.index', compact('colors'));
+        return view('colors.index')->with('colors', $colors);
     }
 
     public function create()
@@ -30,9 +31,11 @@ class ColorController extends Controller
             ->with('success', 'Color created successfully.');
     }
 
-    public function edit(Color $color)
+    public function edit($code): View
     {
-        return view('colors.edit', compact('color'));
+        $color = Color::where('code', $code)->firstOrFail();
+        $pageTitle = 'Update Color';
+        return view('colors.edit', compact('color', 'pageTitle'));
     }
 
     public function update(Request $request, Color $color)
@@ -50,9 +53,7 @@ class ColorController extends Controller
     public function destroy(Color $color)
     {
         $color->delete();
-
-        return redirect()->route('colors.index')
-            ->with('success', 'Color deleted successfully.');
+        return redirect()->route('colors.index')->with('success', 'Color deleted successfully.');
     }
 
     public function getColors()
