@@ -1,4 +1,4 @@
-@extends('layouts.clientetempltate')
+@extends('layouts.clientetemplate')
 
 @section('conteudo')
     <p></p>

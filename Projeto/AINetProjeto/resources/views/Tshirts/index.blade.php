@@ -1,4 +1,4 @@
-@extends('layouts.clientetempltate')
+@extends('layouts.clientetemplate')
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/catalogo.css') }}">
