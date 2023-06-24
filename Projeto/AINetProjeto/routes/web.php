@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\TshirtController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\EstatisticaController;
 
 
 /*
@@ -126,3 +127,5 @@ Route::get('/client', function () {
 
 //CARRINHO
 Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
+
+Route::get('/statistics', [EstatisticaController::class, 'index'])->name('statistics.index')->middleware('admin');
