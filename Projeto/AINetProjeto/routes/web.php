@@ -44,12 +44,12 @@ Route::post('users',[UserController::class, 'store']); //creates a user
 Route::put('users/{id}', [UserController::class, 'update']); //edits a user
 Route::delete('users/{id}',[UserController::class, 'destroy'])->name('users.destroy');//deletes a user //needs to be changed in the controller in case there is something that depends on this
 //categories routes
-Route::get('categories',[CategoryController::class, 'index']); //route to page that shows all categories
-Route::get('categories/create',[CategoryController::class, 'create']); //route to page that creates a category
-Route::post('categories',[CategoryController::class, 'store']); //creates a category
-Route::get('categories/{id}/edit', [CategoryController::class, 'edit']); //route to page that edits a category
-Route::put('categories/{id}', [CategoryController::class, 'update']); //edits a category
-Route::delete('categories/{id}',[CategoryController::class, 'destroy']); //deletes a category //needs to be changed in the controller in case there is something that depends on this
+Route::get('categories',[CategoryController::class, 'index'])->middleware('admin');//route to page that shows all categories
+Route::get('categories/create',[CategoryController::class, 'create'])->middleware('admin'); //route to page that creates a category
+Route::post('categories',[CategoryController::class, 'store'])->middleware('admin'); //creates a category
+Route::get('categories/{id}/edit', [CategoryController::class, 'edit'])->middleware('admin'); //route to page that edits a category
+Route::put('categories/{id}', [CategoryController::class, 'update'])->middleware('admin'); //edits a category
+Route::delete('categories/{id}',[CategoryController::class, 'destroy'])->middleware('admin'); //deletes a category //needs to be changed in the controller in case there is something that depends on this
 
 // Customers routes
 Route::get('customers',[CustomerController::class, 'index']); //route to page that shows all customers
@@ -80,46 +80,35 @@ Route::put('/orderItems/{orderItem}', [OrderItemController::class, 'update'])->n
 Route::delete('/orderItems/{orderItem}', [OrderItemController::class, 'destroy'])->name('orderItems.destroy');
 
 // price routes
-Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
-Route::get('/prices/create', [PriceController::class, 'create'])->name('prices.create');
-Route::post('/prices', [PriceController::class, 'store'])->name('prices.store');
-Route::get('/prices/{price}/edit', [PriceController::class, 'edit'])->name('prices.edit');
-Route::put('/prices/{price}', [PriceController::class, 'update'])->name('prices.update');
-Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('prices.destroy');
+Route::get('/prices', [PriceController::class, 'index'])->name('prices.index')->middleware('admin');
+Route::get('/prices/create', [PriceController::class, 'create'])->name('prices.create')->middleware('admin');
+Route::post('/prices', [PriceController::class, 'store'])->name('prices.store')->middleware('admin');
+Route::get('/prices/{price}/edit', [PriceController::class, 'edit'])->name('prices.edit')->middleware('admin');
+Route::put('/prices/{price}', [PriceController::class, 'update'])->name('prices.update')->middleware('admin');
+Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('prices.destroy')->middleware('admin');
 
 // tshirtImage routes
 Route::get('/tshirt', [TshirtController::class, 'index'])->name('tshirt.index');
-Route::get('/admintshirt', [TshirtController::class, 'adminindex'])->name('tshirt.adminindex');
+Route::get('/admintshirt', [TshirtController::class, 'adminindex'])->name('tshirt.adminindex')->middleware('admin');
 Route::get('/tshirt/{id}/picture', [TshirtController::class, 'getPicture']);
 Route::get('/tshirt/create', [TshirtController::class, 'create'])->name('tshirt.create');
 Route::post('/tshirt/store', [TshirtController::class, 'store'])->name('tshirt.store');
-Route::get('/tshirt/{tshirtImage}/edit', [TshirtController::class, 'edit'])->name('tshirt.edit');
-Route::put('/tshirt/{tshirtImage}', [TshirtController::class, 'update'])->name('tshirt.update');
-Route::delete('/tshirt/{tshirtImage}', [TshirtController::class, 'destroy'])->name('tshirt.destroy');
+Route::get('/tshirt/{tshirtImage}/edit', [TshirtController::class, 'edit'])->name('tshirt.edit')->middleware('admin');
+Route::put('/tshirt/{tshirtImage}', [TshirtController::class, 'update'])->name('tshirt.update')->middleware('admin');
+Route::delete('/tshirt/{tshirtImage}', [TshirtController::class, 'destroy'])->name('tshirt.destroy')->middleware('admin');
 
 //catalogo route
 Route::get('/catalogo', [TshirtController::class, 'index'])->name('catalogo.index');
 
 
 //color routes
-Route::get('/colors', [ColorController::class, 'index'])->name('colors.index');
-Route::get('/colors/create', [ColorController::class, 'create'])->name('colors.create');
-Route::post('/colors', [ColorController::class, 'store'])->name('colors.store');
-Route::get('/colors/{code}/edit', [ColorController::class, 'edit']);
-Route::put('/colors/{code}', [ColorController::class, 'update'])->name('colors.update');
-Route::delete('/colors/{code}', [ColorController::class, 'destroy'])->name('colors.destroy');
+Route::get('/colors', [ColorController::class, 'index'])->name('colors.index')->middleware('admin');
+Route::get('/colors/create', [ColorController::class, 'create'])->name('colors.create')->middleware('admin');
+Route::post('/colors', [ColorController::class, 'store'])->name('colors.store')->middleware('admin');
+Route::get('/colors/{code}/edit', [ColorController::class, 'edit'])->middleware('admin');
+Route::put('/colors/{code}', [ColorController::class, 'update'])->name('colors.update')->middleware('admin');
+Route::delete('/colors/{code}', [ColorController::class, 'destroy'])->name('colors.destroy')->middleware('admin');
 
-
-/*
-// Template de rotas
-Route::get('tshirt',[TemplateController::class, 'index']);
-Route::get('tshirt/create',[TemplateController::class, 'create']);
-Route::post('tshirt',[TemplateController::class, 'store']);
-Route::get('tshirt/{id}/edit', [TemplateController::class, 'edit']);
-Route::put('tshirt/{id}', [TemplateController::class, 'update']);
-Route::delete('tshirt/{id}',[TemplateController::class, 'destroy']);
-
-*/
 
 Auth::routes(); //dont change, this works
 
@@ -132,21 +121,6 @@ Route::get('/admin', function () {
 Route::get('/client', function () {
     return view('layouts.clientetemplate');
 })->name('home')->middleware('auth');
-/*
-// Rota para o painel administrativo (admin)
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('layouts.admintemplate');
-    })->name('admin.dashboard');
-});
-
-// Rota para o cliente
-Route::middleware(['auth', 'role:client'])->group(function () {
-    Route::get('/cliente', function () {
-        return view('layouts.clientetemplate');
-    })->name('client.dashboard');
-});
-*/
 
 //CARRINHO
 Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
