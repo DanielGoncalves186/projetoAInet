@@ -1,0 +1,92 @@
+
+
+        /* Additional CSS styles */
+        .sidebar {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: lightgrey;
+            transition: width 0.3s ease;
+            width: 100px;
+            position: fixed;
+            top:76px;
+            left:0;
+            z-index: 998;
+        }
+
+        .sidebar:hover {
+            width: 150px;
+            #body{
+                background-color: black;
+            }
+        }
+        .sidebar:hover body{
+
+                background-color: black!important;
+
+        }
+        .col-10.content{
+            margin-top: 100px; /* Adjust the margin-top value based on the navbar height */
+            margin-left: 150px;
+        }
+        nav{
+            position: fixed!important;
+            z-index: 999;
+            width: 100%;
+        }
+
+        .sidebar .btn-light {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            margin-bottom: 30px;
+            background-color: lightgrey;
+        }
+        .sidebar .btn-light:hover {
+         background-color: white;
+        }
+
+
+        .content {
+            background-color: #ffffff;
+            margin-left: 200px
+        }
+
+        .cliente-nome {
+            display:inline-block;
+            padding-top:.3125rem;
+            padding-bottom:.3125rem;
+            margin-right:1rem;
+            font-size:1.25rem;
+            line-height:inherit;
+            white-space:nowrap;
+            color: grey;
+            align-items: right;
+        }
+
+        .cliente-nome:hover{
+            text-decoration:none;
+            color: grey;
+        }
+
+        /*"class=center"
+        .center {
+            text-align: center;
+            color: red;
+}
+        */
+
+        /*"id=p"
+        #p {
+            text-align: center;
+            color: red;
+}
+        */
+
+        /*element <p>
+
+        p{
+
+        }
+        */
