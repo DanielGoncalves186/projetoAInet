@@ -36,11 +36,11 @@ Route::get('/tester', function () {
 });
 
 //users routes
-Route::get('users',[UserController::class, 'index']); //route to page that shows all users
-Route::get('users/create',[UserController::class, 'create']); //route to page that creates a user
+Route::get('users',[UserController::class, 'index'])->middleware('adminOnly'); //route to page that shows all users
+Route::get('users/create',[UserController::class, 'create'])->middleware('adminOnly'); //route to page that creates a user
 //Route::get('/users/email/{email}', [UserController::class,'getUserByEmail']); //get user with a specific email
-Route::get('/users/email', [UserController::class,'searchUser']);
-Route::get('users/edit/{id}', [UserController::class, 'edit']); //route to page that edits a user
+Route::get('/users/email', [UserController::class,'searchUser'])->middleware('adminOnly');
+Route::get('users/edit/{id}', [UserController::class, 'edit'])->middleware('adminOnly'); //route to page that edits a user
 Route::post('users',[UserController::class, 'store']); //creates a user
 Route::put('users/{id}', [UserController::class, 'update']); //edits a user
 Route::delete('users/{id}',[UserController::class, 'destroy'])->name('users.destroy');//deletes a user //needs to be changed in the controller in case there is something that depends on this
@@ -54,12 +54,12 @@ Route::put('categories/{id}', [CategoryController::class, 'update'])->middleware
 Route::delete('categories/{id}',[CategoryController::class, 'destroy'])->middleware('adminOnly'); //deletes a category //needs to be changed in the controller in case there is something that depends on this
 
 // Customers routes
-Route::get('customers',[CustomerController::class, 'index']); //route to page that shows all customers
+Route::get('customers',[CustomerController::class, 'index'])->middleware('adminOnly'); //route to page that shows all customers
 Route::get('customers/edit/{id}',[CustomerController::class, 'getCustomerToUpdate']); //show to the customer its settings
 Route::put('customers/edit/{id}', [CustomerController::class, 'storeUpdate']); //update customer and user settings
 Route::get('customers/create',[CustomerController::class, 'create']);  //route to page that creates a customer, use it if the user is a customer
 Route::post('customers',[CustomerController::class, 'store']); //create a customer
-Route::get('customers/{id}/edit', [CustomerController::class, 'edit']); //route to page that edits a customer
+Route::get('customers/{id}/edit', [CustomerController::class, 'edit'])->middleware('adminOnly'); //route to page that edits a customer
 Route::put('customers/{id}', [CustomerController::class, 'update']); //edits a customer
 Route::delete('customers/{id}',[CustomerController::class, 'destroy']); //needs to be changed in the controller in case there is something that depends on this
 
@@ -69,9 +69,9 @@ Route::get('orders/{id}',[OrderController::class, 'indexUser']); //route to page
 Route::get('/orders/history/{id}', [OrderController::class, 'findOrdersOfUser']); //route to page that shows all orders of a user
 Route::get('orders/create',[OrderController::class, 'create']); //route to page that creates an order
 Route::post('orders',[OrderController::class, 'store']); //creates an order
-Route::get('orders/{id}/edit', [OrderController::class, 'edit']); //route to page that edits an order
-Route::put('orders/{id}', [OrderController::class, 'update']); //edits an order
-Route::delete('orders/{id}',[OrderController::class, 'destroy']); //delete an order //needs to be changed in the controller in case there is something that depends on this
+Route::get('orders/{id}/edit', [OrderController::class, 'edit'])->middleware('admin'); //route to page that edits an order
+Route::put('orders/{id}', [OrderController::class, 'update'])->middleware('admin'); //edits an order
+Route::delete('orders/{id}',[OrderController::class, 'destroy'])->middleware('admin'); //delete an order //needs to be changed in the controller in case there is something that depends on this
 
 // orderItem routes
 Route::get('/orderItems', [OrderItemController::class, 'index'])->name('orderItems.index');
