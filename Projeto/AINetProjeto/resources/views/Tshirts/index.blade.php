@@ -24,7 +24,7 @@
             @foreach ($tshirtImages as $tshirt)
                 <div class="t-shirt-box">
                     <div class="t-shirt-image">
-                        <img src='{{ $tshirt->image_url }}' alt="Imagem da T-shirt">
+                        <img src='{{ $tshirt->image_url }}' alt="{{ asset('img/TShirt.png') }}">
                     </div>
                     <div class="t-shirt-details">
                         <h3>{{ $tshirt->name }}</h3>

@@ -39,9 +39,9 @@ class PriceController extends Controller
         return view('prices.edit', compact('price'));
     }
 
-    public function update(Request $request, Price $price)
+    public function update(Request $request, $id)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'unit_price_catalog' => 'required',
             'unit_price_own' => 'required',
             'unit_price_catalog_discount' => 'required',
@@ -49,8 +49,9 @@ class PriceController extends Controller
             'qty_discount' => 'required',
         ]);
 
-        $price->update($request->all());
-
+        $price = Price::findOrFail($id);
+        $price->fill($validatedData);
+        $price->update();
         return redirect()->route('prices.index')
             ->with('success', 'Price updated successfully.');
     }

@@ -89,6 +89,7 @@ Route::delete('/prices/{price}', [PriceController::class, 'destroy'])->name('pri
 
 // tshirtImage routes
 Route::get('/tshirt', [TshirtController::class, 'index'])->name('tshirt.index');
+Route::get('/admintshirt', [TshirtController::class, 'adminindex'])->name('tshirt.adminindex');
 Route::get('/tshirt/{id}/picture', [TshirtController::class, 'getPicture']);
 Route::get('/tshirt/create', [TshirtController::class, 'create'])->name('tshirt.create');
 Route::post('/tshirt/store', [TshirtController::class, 'store'])->name('tshirt.store');

@@ -22,7 +22,10 @@
                     <a class="btn btn-light" href="/colors">Colors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-light" href="#">TshirtImages</a>
+                    <a class="btn btn-light" href="/admintshirt">TshirtImages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-light" href="/prices">Prices</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-light" href="#">Statistics</a>

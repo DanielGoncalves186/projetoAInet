@@ -23,6 +23,16 @@ class TshirtController extends Controller
         return view('tshirts.index', compact('tshirtImages', 'colors'))
             ->with('pageTitle', 'Catalogo de Tshirts');
     }
+    public function adminindex()
+    {
+        $tshirtImages = TshirtImage::all();
+
+        $colorController = new ColorController();
+
+        $colors = $colorController->getColors();
+
+        return view('tshirts.adminindex', compact('tshirtImages', 'colors'));
+    }
 
     public function create()
     {
