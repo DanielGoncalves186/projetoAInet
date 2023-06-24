@@ -62,7 +62,8 @@ Route::delete('customers/{id}',[CustomerController::class, 'destroy']); //needs 
 
 // orders routes -------------------------------------------------added 13/06 by vv (its late so i dont have the patience to check stuff, also needs to be added to the controllers, this methods)
 Route::get('orders',[OrderController::class, 'index']); //route to page that shows all orders
-Route::get('orders/{id}',[OrderController::class, 'indexUser']); //route to page that shows a customer
+Route::get('orders/{id}',[OrderController::class, 'indexUser']); //route to page that shows a order
+Route::get('/orders/history/{id}', [OrderController::class, 'findOrdersOfUser']); //route to page that shows all orders of a user
 Route::get('orders/create',[OrderController::class, 'create']); //route to page that creates an order
 Route::post('orders',[OrderController::class, 'store']); //creates an order
 Route::get('orders/{id}/edit', [OrderController::class, 'edit']); //route to page that edits an order

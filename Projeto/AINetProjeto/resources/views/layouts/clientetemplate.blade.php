@@ -2,8 +2,6 @@
 @section('iconref')
 "/home"
 @endsection
-@extends('layouts.app')
-
 @section('content')
     <div class="container-fluid">
         <div class="sidebar">
@@ -12,7 +10,7 @@
                     <a class="btn btn-light" href="/catalogo">New Order</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-light" href="/orders/history/id">Order History</a>
+                    <a class="btn btn-light" href="/orders/history/{{ Auth::user()->id }}">Order History</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-light" href="/images/create">Add Image</a>

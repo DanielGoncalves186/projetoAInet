@@ -61,6 +61,16 @@ class OrderController extends Controller
         $pageTitle = 'Update Order';
         return view('orders.edit', compact('order', 'Order Edit'));
     }
+    public function findOrdersOfUser($id)
+    {
+        // Find the user by ID
+        // Retrieve all orders associated with the user
+        $orders = Order::where('customer_id', $id)->get();
+        $pageTitle = 'Orders History';
+        // Return the orders as a response
+        return view('orders.history', compact('orders', 'pageTitle'));
+    }
+
     public function update(Request $request, $id) : RedirectResponse {
         $validated = $request->validate([
             'customer_id' => 'required',
