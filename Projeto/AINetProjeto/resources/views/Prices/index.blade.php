@@ -1,13 +1,5 @@
 @extends('layouts.admintemplate')
-@section('head')
-<link rel="stylesheet" href="{{ asset('css/template.css') }}">
-<style>
-#form {
-    display: flex;
-    flex-direction: row;
-}
-</style>
-@endsection
+
 
 @section('conteudo')
     <p></p>
