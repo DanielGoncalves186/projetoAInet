@@ -7,7 +7,7 @@
             flex-direction: column;
             background-color: lightgrey;
             transition: width 0.3s ease;
-            width: 100px;
+            width: 120px;
             position: fixed;
             top:76px;
             left:0;
@@ -15,10 +15,7 @@
         }
 
         .sidebar:hover {
-            width: 150px;
-            #body{
-                background-color: black;
-            }
+            width: 160px;
         }
         .sidebar:hover body{
 

@@ -55,6 +55,7 @@ class CustomerController extends Controller
     }
 
     public function storeUpdate(Request $request, $id) : RedirectResponse {
+                 //customer update sequence
         $validated = $request->validate([
         'nif' => 'size:9',
         'default_payment_ref' => 'max:255',
@@ -67,8 +68,26 @@ class CustomerController extends Controller
         $customer = Customer::findOrFail($id);
         $customer->fill($validated);
         $customer->save();
-        $user= User::findOrFail($id);
-        $user->updateUser($request, $id);
+
+         //user update sequence
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:rfc|unique:users,email,' . $id,
+            'password' => 'required|min:6|same:password_confirm',
+            'password_confirm' => 'required:min:6',
+        ], [
+            // Custom Error Messages
+            'name.required' => '"name" is required.',
+            'email.required' => '"email" is required.',
+            'email.email' => '"email" must be valid.',
+            'email.unique' => '"email" is already in use',
+            'password.required' => '"password" is required.',
+        ]);
+        // If something is not valid, execution is interrupted.
+        // Remaining code is only executed if validation passes
+        $user = User::findOrFail($id);
+        $user->fill($validated);
+        $user->save();
         return redirect()->back()->with('success', 'Information updated successfully.');
            }
            
