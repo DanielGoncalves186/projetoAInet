@@ -28,7 +28,7 @@
                     <a class="btn btn-light" href="/prices">Prices</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-light" href="/statistics">Statistics</a>
+                    <a class="btn btn-light" href="#">Statistics</a>
                 </li>
             </ul>
         </div>

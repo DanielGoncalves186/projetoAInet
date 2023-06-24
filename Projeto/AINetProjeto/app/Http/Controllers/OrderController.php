@@ -5,8 +5,6 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -18,16 +16,9 @@ class OrderController extends Controller
         ->with('orders', $orders)
         ->with('pageTitle', 'Orders List');
         */
-        $orders = Order::paginate(500);
+        $orders = Order::paginate(500); 
 
-        $userType = Auth::user()->user_type;
-
-        if ($userType === 'A') {
-            return view('orders.index')
-            ->with('orders', $orders)
-            ->with('pageTitle', 'Orders List');
-        }
-        return view('orders.indexEmployee')
+        return view('orders.index')
         ->with('orders', $orders)
         ->with('pageTitle', 'Orders List');
     }
