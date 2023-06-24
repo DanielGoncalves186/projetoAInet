@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Customer;
-use Illuminate\Foundation\Auth;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
@@ -37,15 +35,13 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email',
-            'password' => 'required',
-            'user_type' => 'required'
+            'password' => 'required'
         ], [
             // Custom Error Messages
             'name.required' => '"name" is required.',
             'email.required' => '"email" is required.',
             'email.unique' => '"email" is already in use',
             'password.required' => '"password" is required.',
-            'user_type.required' => 'type is required'
         ]);
         // If something is not valid, execution is interrupted.
         // Remaining code is only executed if validation passes
@@ -142,5 +138,6 @@ class UserController extends Controller
 
         return redirect()->action([UserController::class, 'index'])->with('success', 'O usuário foi excluído com sucesso.');
     }
+
 
 }
