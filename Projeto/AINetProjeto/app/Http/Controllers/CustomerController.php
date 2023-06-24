@@ -98,4 +98,6 @@ class CustomerController extends Controller
         return redirect()->action(
         [CustomerController::class, 'index']);
         }
+
+        
 }
