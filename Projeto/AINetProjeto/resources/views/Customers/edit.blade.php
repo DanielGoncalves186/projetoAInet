@@ -1,6 +1,6 @@
 @extends('layouts.admintemplate')
 @section('conteudo')
-<form action="{{ action([App\Http\Controllers\CustomerController::class,'update'], $customer->id) }}" method="post">
+<form action="{{ action([App\Http\Controllers\CustomerController::class,'update'], $customer->id) }}" method="put">
 @csrf
 @method("PUT")
 <div class="form-group">
@@ -22,7 +22,7 @@
 <div class="form-group">
 <label for="inputPaymentType">Payment Type</label>
   <select class="form-control" id="inputPaymentType">
-    <option value="MASTERCARD">Master Card</option>
+    <option value="MC">Master Card</option>
     <option value="VISA">Visa</option>
     <option value="PAYPAL">PayPal</option>
     </select>

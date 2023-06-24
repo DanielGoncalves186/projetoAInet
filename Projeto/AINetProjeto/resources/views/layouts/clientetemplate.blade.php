@@ -16,7 +16,7 @@
                     <a class="btn btn-light" href="/images/create">Add Image</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-light" href="/user/settings">User Settings</a>
+                    <a class="btn btn-light" href="/customers/edit/{{ Auth::user()->id }}">User Settings</a>
                 </li>
             </ul>
         </div>

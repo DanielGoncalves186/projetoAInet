@@ -21,7 +21,7 @@ Add order
 <th>Address</th>
 <th>Payment Type</th>
 <th>Payment Reference</th>
-<th>Reveipt_url</th>
+<th>Receipt_url</th>
 </tr>
 </thead>
 

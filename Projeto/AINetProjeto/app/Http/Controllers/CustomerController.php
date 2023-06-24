@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -41,13 +42,21 @@ class CustomerController extends Controller
     public function edit($id): View
     {
         $customer = Customer::findOrFail($id);
-        $pageTitle = 'Update Customer';
+        $pageTitle = 'Edit Customer';
         return view('customers.edit', compact('customer', 'pageTitle'));
     }
 
-    public function update(Request $request, $id) : RedirectResponse {
+    public function getCustomerToUpdate($id): View
+    {
+        $customer = Customer::findOrFail($id);
+        $user = User::findOrFail($id);
+        $pageTitle = 'Customer Settings';
+        return view('customers.settings', compact('customer','user', 'pageTitle'));
+    }
+
+    public function storeUpdate(Request $request, $id) : RedirectResponse {
         $validated = $request->validate([
-             'nif' => 'array|size:9',
+        'nif' => 'size:9',
         'default_payment_ref' => 'max:255',
         ], [ // Custom Error Messages
         'nif.size' => '"nif" must have 9 characters',
@@ -58,11 +67,14 @@ class CustomerController extends Controller
         $customer = Customer::findOrFail($id);
         $customer->fill($validated);
         $customer->save();
-        return redirect()->action([CustomerController::class,'index']);
+        $user= User::findOrFail($id);
+        $user->updateUser($request, $id);
+        return redirect()->back()->with('success', 'Information updated successfully.');
            }
-
+           
 
     public function destroy($id) : RedirectResponse{
+        User::destroy($id);
         Customer::destroy($id);
         return redirect()->action(
         [CustomerController::class, 'index']);

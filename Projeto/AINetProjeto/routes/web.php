@@ -43,6 +43,7 @@ Route::get('users/edit/{id}', [UserController::class, 'edit']); //route to page 
 Route::post('users',[UserController::class, 'store']); //creates a user
 Route::put('users/{id}', [UserController::class, 'update']); //edits a user
 Route::delete('users/{id}',[UserController::class, 'destroy'])->name('users.destroy');//deletes a user //needs to be changed in the controller in case there is something that depends on this
+
 //categories routes
 Route::get('categories',[CategoryController::class, 'index'])->middleware('admin');//route to page that shows all categories
 Route::get('categories/create',[CategoryController::class, 'create'])->middleware('admin'); //route to page that creates a category
@@ -53,7 +54,8 @@ Route::delete('categories/{id}',[CategoryController::class, 'destroy'])->middlew
 
 // Customers routes
 Route::get('customers',[CustomerController::class, 'index']); //route to page that shows all customers
-Route::get('customers/{id}',[CustomerController::class, 'indexCustomer']); //show a customer //implementar no controller !!!
+Route::get('customers/edit/{id}',[CustomerController::class, 'getCustomerToUpdate']); //show to the customer its settings
+Route::put('customers/edit/{id}', [CustomerController::class, 'storeUpdate']); //update customer and user settings
 Route::get('customers/create',[CustomerController::class, 'create']);  //route to page that creates a customer, use it if the user is a customer
 Route::post('customers',[CustomerController::class, 'store']); //create a customer
 Route::get('customers/{id}/edit', [CustomerController::class, 'edit']); //route to page that edits a customer

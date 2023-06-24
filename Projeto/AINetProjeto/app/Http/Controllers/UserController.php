@@ -97,6 +97,27 @@ class UserController extends Controller
         $user->save();
         return redirect()->action([UserController::class, 'index']);
     }
+    public function updateUser(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:rfc|unique:users,email,' . $id,
+            'password' => 'required|min:6|same:password_confirm',
+            'password_confirm' => 'required:min:6',
+        ], [
+            // Custom Error Messages
+            'name.required' => '"name" is required.',
+            'email.required' => '"email" is required.',
+            'email.email' => '"email" must be valid.',
+            'email.unique' => '"email" is already in use',
+            'password.required' => '"password" is required.',
+        ]);
+        // If something is not valid, execution is interrupted.
+        // Remaining code is only executed if validation passes
+        $user = User::findOrFail($id);
+        $user->fill($validated);
+        $user->save();
+    }
 
 
     public function destroy($id): RedirectResponse

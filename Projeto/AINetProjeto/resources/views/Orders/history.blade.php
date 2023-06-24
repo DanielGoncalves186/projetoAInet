@@ -10,9 +10,8 @@
     <p>No orders were made.</p>
 @else
 <tr>
-<th>ID</th>
+<th>Order ID</th>
 <th>Status</th>
-<th>Customer ID</th>
 <th>Date</th>
 <th>Total Price</th>
 <th>Notes</th>
@@ -20,7 +19,7 @@
 <th>Address</th>
 <th>Payment Type</th>
 <th>Payment Reference</th>
-<th>Reveipt_url</th>
+<th>Receipt_url</th>
 </tr>
 </thead>
 
