@@ -13,7 +13,7 @@
                     <a class="btn btn-light" href="/orders/history/{{ Auth::user()->id }}">Order History</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-light" href="/tshirt/create">Add Image</a>
+                    <a class="btn btn-light" href="/images/create">Add Image</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-light" href="/customers/edit/{{ Auth::user()->id }}">User Settings</a>
