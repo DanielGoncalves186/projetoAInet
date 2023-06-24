@@ -5,7 +5,7 @@
             height: 100vh;
             background-color: #f8f9fa;
             transition: width 0.3s ease;
-            width: 150px;
+            width: 100px;
             overflow: hidden;
         }
         
